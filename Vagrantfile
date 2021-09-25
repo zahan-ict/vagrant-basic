@@ -4,12 +4,27 @@
 Vagrant.configure("2") do |config|
 
   # Box Setting 
-  config.vm.box = "ubuntu/bionic64"      #ubuntu 18.0LTS
+  config.vm.box = "ubuntu/bionic64"       #ubuntu 18.0LTS
   #config.vm.box = "ubuntu/ubuntu-20.04"  #ubuntu 20.0LTS
   #config.vm.box = "ubuntu/trusty64"      #ubuntu 14.0LTS
 
 
   # Network Setting
+  config.vm.network "forwarded_port",
+  guest: 8001,
+  host:  8001,
+  auto_correct: true
+  
+config.vm.network "forwarded_port",
+  guest: 8080,
+  host:  8080,
+  auto_correct: true
+  
+config.vm.network "forwarded_port",
+  guest: 8090,
+  host:  8090,
+  auto_correct: true
+
   # config.vm.network "forwarded_port", guest: 80, host: 8080
   # config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
   # config.vm.network "private_network", ip: "192.168.33.10"
@@ -17,12 +32,12 @@ Vagrant.configure("2") do |config|
 
      
   # Folder Setting
-  # config.vm.synced_folder ".", "/var/"
+  #config.vm.synced_folder ".", "/vagrant/"
 
 
   # Box Provider Setting
   config.vm.provider "virtualbox" do |vb|
-  #   vb.gui = true
+    vb.gui = false
     vb.memory = "3024"
     vb.cpus =  "3"
   end

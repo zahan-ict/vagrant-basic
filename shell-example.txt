@@ -30,10 +30,10 @@ sudo ./gu install native-image
 cd /tmp
 wget https://apache.cs.uu.nl/maven/maven-3/3.8.2/binaries/apache-maven-3.8.2-bin.tar.gz
 sudo tar xzvf apache-maven-3.8.2-bin.tar.gz -C /opt
-#apt install -y maven  
+#apt install -y maven
 
 #Permanently setting environment variables for all users
-sudo cp /vagrant/env.sh /etc/profile.d/env.sh
+sudo cp /vagrant/env/env.sh /etc/profile.d/env.sh
 
 #Clean up
 rm /tmp/graalvm-ce-java11-linux-amd64-20.1.0.tar.gz
